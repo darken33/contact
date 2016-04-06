@@ -1,0 +1,84 @@
+Titre       : Contact
+Version     : 0.1
+Description : Carnet d'adresse fonctionnant en intranet
+Auteur      : Philippe BOUSQUET
+Creation    : 23/01/2002
+Licence     : GNU GENERAL PUBLIC LICENSE
+Copyright   : (c) 2002 - Philippe BOUSQUET
+_________________________________________________________________
+
+PRESENTATION
+============
+	Contact est un logiciel de carnet d'adresse ecrit en PHP et MySQL,
+	sa particularité est qu'il fonctionne sur un serveur web du type Apache
+	et peut donc etre accessible en intranet ou via internet.
+
+	Veuillez consulter le Manuel Utilisateur : help/Manuel-Contact.html
+
+INSTALLATION
+============
+	Configuration Necessaire:
+	- Apache ou tout autre serveur supprotant le PHP et MySQL
+	- PHP
+	- MySQL
+	- Konqueror ou tout autre Navigateur supportant le JavaScript
+	  et les evenements "OnClick" sur les images
+
+	Ma Configuration:
+	- Apache v1.3.20
+	- PHP v4.0.6
+	- MySQL v11.15 distrib 3.23.41
+	- Konqueror v2.2.1
+
+	Installation de Contact
+	1)Tout d'abord il vous faudra vous connecter en root
+	$ su
+	2) Lancer la configuration
+	# ./configure
+	3) Installer Contact:
+	# ./install-it
+	Pour plus d'informations veuillez vous reporter a la note INSTALL.
+
+OU TROUVER CONTACT ?
+====================
+	Contact va surement évoluer et donc si vous voulez récupérer
+	les nouvelles versions ou tous simplement vous tenir informé sur le Projet.
+	Ce projet est hébergé sur mon site WEB (http://darken.tuxfamily.org)
+	à l'adresse suivante : http://darken.tuxfamily.org/pages/contact.html.
+
+
+COPYRIGHT & LICENCE
+===================
+	Licence
+	 Contact est sous licence GPL (GNU GENERAL PUBLIC LICENSE).
+	 Pour plus d'information veuillez vous reporter au fichier
+	 LICENSE fourni avec l'archive.
+
+
+	Copyright
+	 Contact Copyright (c) 2002 - Philippe BOUSQUET.
+
+
+GARANTIES
+=========
+	Du fait de la gratuité du logiciel, et comme précisé dans la GPL,
+	je ne fournit aucune garantie de quelle forme qu'elle soit quant à
+	l'utilisation de ce logiciel ou dérivés.
+
+AUTEUR
+======
+	Philippe BOUSQUET
+	Adresse: 229 rue Sainte Catherine, 33000 BORDEAUX.
+	Tel: 06.61.99.25.84
+	e-mail: Darken@tuxfamily.org
+	site: http://darken.tuxfamily.org
+
+_________________________________________________________________
+
+Philippe BOUSQUET
+229 rue Sainte Catherine,
+33000 BORDEAUX
+FRANCE.
+Tel: (+33) 06.61.99.25.84
+E-mail : Darken@tuxfamily.org
+Site: http://darken.tuxfamily.org

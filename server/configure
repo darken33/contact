@@ -1,0 +1,59 @@
+#! /bin/sh
+
+echo "Configuration de l'installation de Contact"
+echo ""
+echo "Hote du serveur MySQL ? ($(hostname -s))"
+read hote;
+if [ -z $hote ]; then
+  hote=$(hostname -s)
+fi
+echo "Repertoire d'installation ? (/var/www/html)"
+read location;
+if [ -z $location ]; then
+  location="/var/www/html"
+fi
+echo "Mot de passe de l'administrateur MySQL ?"
+read rootpass;
+echo "choisissez un mot de passe pour l'admin de Contact ?"
+read contactpass;
+
+# creation de l'icone sur le bureau KDE
+echo "[Desktop Entry]" > Contact.desktop
+echo "Icon=addressbook_section" >> Contact.desktop
+echo "Name[fr]=Contact" >> Contact.desktop
+echo "Type=Link" >> Contact.desktop 
+echo "URL=http://$hote/Contact/" >> Contact.desktop
+
+# creation du fichier config.php
+echo "<?" > php/config.php
+echo "\$Location=\"$hote\";" >> php/config.php
+echo "\$Database=\"contact\";" >> php/config.php
+echo "\$User=\"wwwcontact\";" >> php/config.php
+echo "\$Passwd=\"$contactpass\";" >> php/config.php
+echo "?>" >> php/config.php
+
+# creation du fichier installation.sql
+echo "-- Ceation de la database contact" > installation.sql
+echo "create database contact;" >> installation.sql
+echo "-- connection a la database" >> installation.sql
+echo "\u mysql" >> installation.sql
+echo "-- Creation de l'utilisateur wwwcontact" >> installation.sql
+echo "INSERT INTO user (Host, User, Password, Select_priv, Insert_priv, Update_priv, Delete_priv, Create_priv, Drop_priv, Reload_priv, Shutdown_priv, Process_priv, File_priv, Grant_priv, References_priv, Index_priv, Alter_priv) VALUES ('$hote', 'wwwcontact', PASSWORD('$contactpass'), 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N', 'N');"  >> installation.sql
+echo "-- connection a la database" >> installation.sql
+echo "\u contact" >> installation.sql
+echo "-- autoriser le user contact" >> installation.sql
+echo "grant all privileges on contact.* to wwwcontact@$hote;" >> installation.sql
+cat script/script.sql >> installation.sql
+
+# creation du fichier install-it
+echo "#! /bin/sh" > install-it
+echo "location=\"$location\";" >> install-it
+echo "hote=\"$hote\";" >> install-it
+echo "rootpass=\"$rootpass\";" >> install-it
+echo "contactpass=\"$contactpass\";" >> install-it
+cat script/install.m4 >> install-it
+chmod 755 install-it
+
+# fin
+echo ""
+echo "Veuillez taper ./install-it pour installer..."

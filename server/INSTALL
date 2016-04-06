@@ -1,0 +1,63 @@
+Titre       : Contact
+Version     : 0.1
+Description : Carnet d'adresse fonctionnant en intranet
+Auteur      : Philippe BOUSQUET
+Creation    : 23/01/2002
+Licence     : GNU GENERAL PUBLIC LICENSE
+Copyright   : (c) 2002 - Philippe BOUSQUET
+_________________________________________________________________
+
+SE CONNECTER
+============
+	La premiere chose à faire pour installer Contact est de se
+	connecter en mode Super Utilisateur (root) pour cela il suffit
+	de taper la commande 'su'.
+
+CONFIGURER
+==========
+	Ensuite il faut configurer l'installation, pour cela veuiller taper
+	la commande suivante './configure'.
+
+	Le script vous pose quatre questions:
+	1) Hote du Serveur MySQL ?
+	   Ceci est le nom du serveur ou réside MySQL par default une valeur
+	   est proposé entre paranthese (en general il s'agit de 'localhost')
+
+	2) Chemin dinstallation ?
+	   Il s'agit du chemin ou vous désirez installer Contact. Par defaut
+	   le chemin est '/var/www/html/Contact'.
+
+	3) Mot de passe de l'administrateur MySQL ?
+	   Pour creer la base de donnee il est necessaire de se connecter a
+	   MySQL en tant qu'administrateur (utilisateur 'root') aussi veuillez
+	   saisir le mot de passe.
+
+	4) Choisissez un mot de passe pour l'admin de Contact ?
+	   l'utilisateur 'wwwcontact' va etre créé sous MySQL. Il s'agit de
+	   l'utilisateur utilisé par le logiciel lors de l'utilisateur de contact.
+	   Aussi veuillez choisir un mot de passe.
+
+	Le script génère un fichier 'Contact.desktop' qu'il convient de mettre dans le
+	repertoire Desktop (bureau KDE) des utilisateurs il s'agit d'un icone de lancement
+	de l'application
+
+INSTALLER
+=========
+	Le script de configuration genere un script nommé 'install-it', c'est celui ci
+	qu'il faut executer pour installer le logiciel: veuillez taper './install-it'.
+
+	Le script va copier les fichiers necessaires a l'emplacement choisi.
+	Il va ensuite creer la base de donnée.
+
+	Une fois l'installation effectué il suffit de lancer le logiciel:
+	http://localhost/Contact
+
+_________________________________________________________________
+
+Philippe BOUSQUET
+229 rue Sainte Catherine,
+33000 BORDEAUX
+FRANCE.
+Tel: (+33) 06.61.99.25.84
+E-mail : Darken@tuxfamily.org
+Site: http://darken.tuxfamily.org
