@@ -21,7 +21,7 @@ read contactpass;
 echo "[Desktop Entry]" > Contact.desktop
 echo "Icon=addressbook_section" >> Contact.desktop
 echo "Name[fr]=Contact" >> Contact.desktop
-echo "Type=Link" >> Contact.desktop 
+echo "Type=Link" >> Contact.desktop
 echo "URL=http://$hote/Contact/" >> Contact.desktop
 
 # creation du fichier config.php
@@ -53,6 +53,15 @@ echo "rootpass=\"$rootpass\";" >> install-it
 echo "contactpass=\"$contactpass\";" >> install-it
 cat script/install.m4 >> install-it
 chmod 755 install-it
+
+# creation du fichier update-it
+echo "#! /bin/sh" > update-it
+echo "location=\"$location\";" >> update-it
+echo "hote=\"$hote\";" >> update-it
+echo "rootpass=\"$rootpass\";" >> update-it
+echo "contactpass=\"$contactpass\";" >> update-it
+cat script/update.m4 >> update-it
+chmod 755 update-it
 
 # fin
 echo ""

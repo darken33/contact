@@ -1,1 +1,322 @@
-Manuel-Contact.html
+<HTML>
+<HEAD>
+  <TITLE>Contact - Manuel Utilisateur</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF"><FONT COLOR="#000000">
+  <H1>Contact - Manuel Utilisateur</H1>
+  <ADDRESS>Manuel de la version v0.1</ADDRESS>
+  <P>
+  <P><HR><P>
+  <A NAME="SOMMAIRE"><H2><u>Sommaire</u></H2></A>
+    <UL>
+      <LI><A NAME="TOC1" HREF="#PRESENTATION">Présentation</A>
+      <LI><A NAME="TOC2" HREF="#INSTALLATION">Installation</A>
+      <LI><A NAME="TOC2" HREF="#BDD">La base de donnee</A>
+      <LI><A NAME="TOC3" HREF="#LOGIN">Se Connecter à Contact</A>
+      <LI><A NAME="TOC4" HREF="#LISTE">La Liste des contacts</A>
+      <LI><A NAME="TOC5" HREF="#NOUVEAU">Créer un contact</A>
+      <LI><A NAME="TOC5" HREF="#DETAIL">Detail d'un contact</A>
+      <LI><A NAME="TOC6" HREF="#CHERCHER">Chercher un contact</A>
+      <LI><A NAME="TOC6" HREF="#MOTPASSE">Modifier son mot de passe</A>
+      <LI><A NAME="TOC6" HREF="#APROPOS">La boite A Propos</A>
+      <LI><A NAME="TOC6" HREF="#LISTEUTIL">Gestion des utilisateurs</A>
+      <LI><A NAME="TOC6" HREF="#CREERUTIL">Creer un Utilisateur</A>
+      <LI><A NAME="TOC6" HREF="#MODIFUTIL">Modifier un Utilisateur</A>
+      <LI><A NAME="TOC7" HREF="#SITE">Ou trouver Contact ?</A>
+      <LI><A NAME="TOC8" HREF="#LICENSE">Copyright & Licence</A>
+      <LI><A NAME="TOC9" HREF="#AUTEUR">Auteur</A>
+    </UL>
+  <P><HR><P>
+  <A NAME="PRESENTATION"><H2><u>Présentation</u></H2></A>
+       <b>Contact</b> est un logiciel de carnet d'adresse ecrit en PHP et MySQL, sa particularité est qu'il fonctionne sur un serveur web du type Apache et peut donc etre accessible en intranet ou via internet.<br>
+  <P><HR><P>
+  <A NAME="INSTALLATION"><H2><u>Installation</u></H2></A>
+    <b><u>Configuration Necessaire:</u></b>
+    <ul>
+      <li>Apache ou tout autre serveur supprotant le PHP et MySQL</li>
+      <li>PHP</li>
+      <li>MySQL</li>
+      <li>Konqueror ou tout autre Navigateur supportant le JavaScript et les evenements "OnClick" sur les images</li>
+    </ul>
+    <center><hr width="25%"></center>
+    <b><u>Ma Configuration:</u></b>
+    <ul>
+      <li>Apache v1.3.20</li>
+      <li>PHP v4.0.6</li>
+      <li>MySQL v11.15 distrib 3.23.41</li>
+      <li>Konqueror v2.2.1</li>
+    </ul>
+    <center><hr width="25%"></center>
+    <b><u>Installation de Contact</u></b><br>
+    <b>1)</b>Tout d'abord il vous faudra vous connecter en root<br>
+    <code>$ su</code><br>
+    <b>2)</b> Lancer la configuration<br>
+    <code># ./configure</code><br>
+    <b>3)</b> Installer Contact: <br>
+    <code># ./install-it</code>
+  <P><HR><P>
+  <A NAME="BDD"><H2><u>La Base de Donnée</u></H2></A>
+    <ul>
+      <li>Liste des tables de la database contact:<br>
+      <table border=1>
+        <tr>
+          <td><b>users</b></td><td>Liste des utilisateurs autorisés</td>
+        </tr>
+        <tr>
+          <td><b>contacts</b></td><td>Liste des contacts pour un utilisateur</td>
+        </tr>
+      </table>
+      <br>
+      <li>Les champs de la table <b>users</b>:<br>
+      <table border=1>
+        <th>Champ</th><th>Type</th><th>Null</th><th>Clé</th><th>Defaut</th><th>Extra</th><th>Definition</th>
+        <tr>
+          <td>cuser</td><td>varchar(10)</td><td>&nbsp;</td><td>PRI</td><td>&nbsp;</td><td>&nbsp;</td><td>Code utilisateur</td>
+        </tr>
+        <tr>
+          <td>passwd</td><td>varchar(10)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Mot de passe</td>
+        </tr>
+      </table>
+      <br>
+      <li>Les champs de la table <b>contacts</b>:<br>
+      <table border=1>
+        <th>Champ</th><th>Type</th><th>Null</th><th>Clé</th><th>Defaut</th><th>Extra</th><th>Definition</th>
+        <tr>
+          <td>ident</td><td>mediumint(9)</td><td>&nbsp;</td><td>PRI</td><td>&nbsp;</td><td>auto_increment</td><td>Identifiant contact</td>
+        </tr>
+        <tr>
+          <td>cuser</td><td>varchar(10)</td><td>&nbsp;</td><td>PRI</td><td>&nbsp;</td><td>&nbsp;</td><td>Code utilisateur</td>
+        </tr>
+        <tr>
+          <td>nom</td><td>varchar(25)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Nom de la parsonne</td>
+        </tr>
+        <tr>
+          <td>prenom</td><td>varchar(25)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Prenom de la personne</td>
+        </tr>
+        <tr>
+          <td>dnaiss</td><td>date</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Date de naissance</td>
+        </tr>
+        <tr>
+          <td>pseudo</td><td>varchar(15)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Pseudonyme de la personne</td>
+        </tr>
+        <tr>
+          <td>nature</td><td>char(1)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Nature de la personne</td>
+        </tr>
+        <tr>
+          <td>type</td><td>char(1)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Type de contact</td>
+        </tr>
+        <tr>
+          <td>adresse1</td><td>varchar(128)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Premiere ligne d'adresse</td>
+        </tr>
+        <tr>
+          <td>adresse2</td><td>varchar(128)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Deuxieme ligne d'adresse</td>
+        </tr>
+        <tr>
+          <td>cdpost</td><td>varchar(5)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Code postal</td>
+        </tr>
+        <tr>
+          <td>ville</td><td>varchar(15)</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Ville</td>
+        </tr>
+        <tr>
+          <td>teldom</td><td>varchar(10)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Telephone personnel</td>
+        </tr>
+        <tr>
+          <td>empers</td><td>varchar(255)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>E-mail personnel</td>
+        </tr>
+        <tr>
+          <td>telbur</td><td>varchar(10)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Telephone professionnel</td>
+        </tr>
+        <tr>
+          <td>emprof</td><td>varchar(255)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>E-mail professionnel</td>
+        </tr>
+        <tr>
+          <td>telpor</td><td>varchar(10)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Telephone Portable</td>
+        </tr>
+        <tr>
+          <td>fax</td><td>varchar(10)</td><td>YES</td><td>&nbsp;</td><td>NULL</td><td>&nbsp;</td><td>Numero de Fax</td>
+        </tr>
+      </table>
+    </ul>
+  <P><HR><P>
+  <A NAME="LOGIN"><H2><u>Se connecter à Contact</u></H2></A>
+  <br>
+  <img src="imgs/login.jpg" width=199 height=142 border=0>
+  <br><br>
+  La premiere chose a faire est de se signer, il suffit d'entrer son code utilisateur et son mot de passe qui est stocké dans la table <b>users</b>.<br>
+  L'administrateur permet d'ajouter ou supprimer des utilisateur. Pour se connecter en tant qu'administrateur il faut entrer le code utilisateur <b>root</b> ainsi que son mot de passe lui aussi stocké dans la table <b>users</b>.
+  <P><HR><P>
+  <A NAME="LISTE"><H2><u>La Liste des contacts</u></H2></A>
+  <br>
+  <img src="imgs/liste_contacts.jpg" width=199 height=142 border=0><br><br>
+  Une fois connecté, on se débranche automatiquement sur la liste des contacts.<br><br>
+  <u>On peu effectuer les actions suivantes:</u>
+  <ul>
+  <li>Bouton <b>Detail</b>: Visualisation du détail d'un contact
+  <li>Bouton <b>Nouveau</b>: Creation d'un nouveau contact
+  <li>Bouton <b>Chercher</b>: Rechercher des contacts
+  <li>Bouton <b>Password</b>: Modifier son mot de passe
+  <li>Bouton <b>Aide</b>: Obtenir de l'aide sur la page
+  <li>Bouton <b>A Propos</b>: Visualiser la boite A Propos du logiciel
+  <li>Bouton <b>Quitter</b>: Se deconnecter de Contact
+  </ul>
+  <P><HR><P>
+  <A NAME="NOUVEAU"><H2><u>Créer un contact</u></H2></A>
+  <br>
+  <img src="imgs/creer_contact.jpg" width=199 height=142 border=0><br><br>
+  Lorsque vous désirez créer un nouveau contact il est nécessaire de saisir au minimum deux champs à savoir le <b>Nom</b> et la <b>Ville</b> du contact.<br><br>
+  <u>Brève description des champs:</u>
+  <ul>
+    <li><b>Nom</b>: Il s'agit du nom du contact, ce champ est obligatoire</li>
+    <li><b>Prenom</b>: Il s'agit du prénom du contact</li>
+    <li><b>Date de naissance</b>: Date de naissance du contact</li>
+    <li><b>Pseudonyme</b>: Il s'agit du pseudonyme du contact</li>
+    <li><b>Nature</b>: Type de personne (Homme, Femme, Société)</li>
+    <li><b>Nature du contact</b>: Famille, Amis, Connaissance, Professionnel</li>
+    <li><b>Adresse</b>: Il s'agit de l'adresse du contact positionnée sur deux lignes</li>
+    <li><b>Code Postal</b>: Il s'agit du code postal correspondant a la ville du contact</li>
+    <li><b>Ville</b>: La ville ou reside le contact, ce champ est obligatoire</li>
+    <li><b>Tel Domicile</b>: Le telephone personnel du contact</li>
+    <li><b>E-mail Personnel</b>: L'adresse electronique personnelle du contact</li>
+    <li><b>Tel Bureaue</b>: Le telephone professionnel du contact</li>
+    <li><b>E-mail Professionnel</b>: L'adresse electronique professionnelle du contact</li>
+    <li><b>Tel Portable</b>: Si le contact possède un portable indiquez son numéro ici</li>
+    <li><b>Fax</b>: Si le contact possède un fax indiquez son numéro ici</li>
+  </ul>
+  <u>On peu effectuer les actions suivantes:</u>
+  <ul>
+  <li>Bouton <b>Creation</b>: Creation du contact
+  <li>Bouton <b>Aide</b>: Obtenir de l'aide sur la page
+  <li>Bouton <b>Retour</b>: Retour à la liste des contacts
+  </ul>
+  <P><HR><P>
+  <A NAME="DETAIL"><H2><u>Detail d'un contact</u></H2></A>
+  <br>
+  <img src="imgs/detail_contact.jpg" width=199 height=142 border=0><br><br>
+  Cette page permet d'obtenir l'ensemble des informations a propos d'un contact en vue de les modifier, de supprimer le contact, ou tout simplement de les visualiser<br><br>
+  <u>On peu effectuer les actions suivantes:</u>
+  <ul>
+  <li>Bouton <b>Modifier</b>: Enregistrer les modifiactions apportées, tous les champs sont modifiables
+  <li>Bouton <b>Supprimer</b>: Supprimer le contact de la base de données
+  <li>Bouton <b>Aide</b>: Obtenir de l'aide sur la page
+  <li>Bouton <b>Retour</b>: Retour à la liste des contacts
+  </ul>
+  <P><HR><P>
+  <A NAME="CHERCHER"><H2><u>Chercher un contact</u></H2></A>
+  <br>
+  <img src="imgs/chercher_contact.jpg" width=199 height=142 border=0><br><br>
+  Cette page permet de selectionner certains criteres afin d'afficher une liste plus restreinte de contacts<br><br>
+  <u>Critères de recherche:</u>
+  <ul>
+    <li><b>Nom</b>: On peut saisir un nom complet ou partiel pour cela terminer la chaine par le caractère '%' ("B%" permet de chercher tous les contacts dont le nom commence par 'B')
+    <li><b>Prenom</b>: On peut saisir le prenom complet ou partiel pour cela terminer la chaine par le caractère '%'
+    <li><b>Pseudonyme</b>: On peut saisir le pseudonyme complet ou partiel pour cela terminer la chaine par le caractère '%'
+    <li><b>Ville</b>: On peut saisir la ville complete ou partielle pour cela terminer la chaine par le caractère '%'
+    <li><b>Nature</b>: On peut choisir entre Homme, Femme, Societe
+    <li><b>Nature Contact</b>: On peut choisir entre Famille, Amis, Connaissance, Profesionnel
+    <li><i><b>Remarque</b>: Si aucun critere n'est modifié la recherche renvera la liste complète des contacts</i>
+  </ul>
+  <u>On peu effectuer les actions suivantes:</u>
+  <ul>
+  <li>Bouton <b>Chercher</b>: Lancer la recherche avec les critères saisis
+  <li>Bouton <b>Aide</b>: Obtenir de l'aide sur la page
+  <li>Bouton <b>Retour</b>: Retour à la liste des contacts
+  </ul>
+  <P><HR><P>
+  <A NAME="MOTPASSE"><H2><u>Modifier son mot de passe</u></H2></A>
+  <br>
+  <img src="imgs/chg_password.jpg" width=199 height=142 border=0><br><br>
+  Cette page permet de changer son mot de passe<br><br>
+  <u>Brève description des champs:</u>
+  <ul>
+    <li><b>Utilisateur</b>: Il s'agit du code utilisateur de la personne connecté (non modifiable)</li>
+    <li><b>Nouveau Password</b>: Il s'agit du nouveau mot de passe</li>
+    <li><b>Verification</b>: Ce champ sert de verification, il doit aussi contenir le nouveau mot de passe</li>
+  </ul>
+  <u>On peu effectuer les actions suivantes:</u>
+  <ul>
+  <li>Bouton <b>Modifier</b>: Prendre en compte le changement de mot de passe
+  <li>Bouton <b>Aide</b>: Obtenir de l'aide sur la page
+  <li>Bouton <b>Retour</b>: Retour à la liste des contacts
+  </ul>
+  <P><HR><P>
+  <A NAME="APROPOS"><H2><u>La boite A Propos</u></H2></A>
+  <br>
+  <img src="imgs/apropos.jpg" width=199 height=142 border=0><br><br>
+  Cette page affiche la boite A Propos: Elle donne differentes infos comme le numero de version de <b><i>Contact</i></b><br><br>
+  <u>On peu effectuer les actions suivantes:</u>
+  <ul>
+  <li>Bouton <b>Retour</b>: Retour à la liste des contacts
+  </ul>
+  <P><HR><P>
+  <A NAME="LISTEUTIL"><H2><u>Gestion des Utilisateurs</u></H2></A>
+  <br>
+  <img src="imgs/liste_utils.jpg" width=199 height=142 border=0><br><br>
+  Lorsque l'on se connecte en tant qu'administrateur (user: <b>root</b>) on se débranche sur cette page qui permet la gestion des utilisateurs de <b><i>Contact</i></b><br><br>
+  <u>On peu effectuer les actions suivantes:</u>
+  <ul>
+  <li>Bouton <b>Nouveau</b>: Creation d'un nouvel utilisateur
+  <li>Bouton <b>Modifier</b>: Changer le mot de passe d'un utilisateur
+  <li>Bouton <b>Supprimer</b>: Supprimer un utilisateur et ses contacts<br>ATTENTION : on ne peut supprimer l'utilisateur <b>root</b>
+  <li>Bouton <b>Aide</b>: Obtenir de l'aide sur la page
+  <li>Bouton <b>Quitter</b>: Se deconnecter de Contact
+  </ul>
+  <P><HR><P>
+  <A NAME="CREERUTIL"><H2><u>Creer un nouvel Utilisateur</u></H2></A>
+  <br>
+  <img src="imgs/creer_util.jpg" width=199 height=142 border=0><br><br>
+  Cette page permet de creer un nouveau compte utilisateur. L'utilisateur pourra alors creer et gerer ses contact via le logiciel<br><br>
+  <u>Brève description des champs:</u>
+  <ul>
+    <li><b>Utilisateur</b>: Il s'agit du code de l'utilisateur à ajouter (champ obligatoire)</li>
+    <li><b>Nouveau Password</b>: Il s'agit du nouveau mot de passe</li>
+    <li><b>Verification</b>: Ce champ sert de verification, il doit aussi contenir le nouveau mot de passe</li>
+  </ul>
+  <u>On peu effectuer les actions suivantes:</u>
+  <ul>
+  <li>Bouton <b>Creation</b>: Creer l'utilisateur
+  <li>Bouton <b>Aide</b>: Obtenir de l'aide sur la page
+  <li>Bouton <b>Retour</b>: Retour à la liste des utilisateurs
+  </ul>
+  <P><HR><P>
+  <A NAME="MODIFUTIL"><H2><u>Modifier le mot de passe d'un utilisateur</u></H2></A>
+  <br>
+  <img src="imgs/chg_password.jpg" width=199 height=142 border=0><br><br>
+  Cette page permet de changer le mot de passe d'un utilisateur, ceci est utile si celui ci à oublié son mot de passe<br><br>
+  <u>Brève description des champs:</u>
+  <ul>
+    <li><b>Utilisateur</b>: Il s'agit du code de l'utilisateur à modifier (non modifiable)</li>
+    <li><b>Nouveau Password</b>: Il s'agit du nouveau mot de passe</li>
+    <li><b>Verification</b>: Ce champ sert de verification, il doit aussi contenir le nouveau mot de passe</li>
+  </ul>
+  <u>On peu effectuer les actions suivantes:</u>
+  <ul>
+  <li>Bouton <b>Modifier</b>: Prendre en compte le changement de mot de passe
+  <li>Bouton <b>Aide</b>: Obtenir de l'aide sur la page
+  <li>Bouton <b>Retour</b>: Retour à la liste des utilisateurs
+  </ul>
+  <P><HR><P>
+  <A NAME="SITE"><H2><u>Ou trouver Contact ?</u></H2></A>
+    <b>Contact</b> va surement évoluer et donc si vous voulez récupérer les nouvelles versions ou tous simplement vous tenir informé sur le Projet.<br>
+    Ce projet est hébergé sur mon site WEB (<a href="http://darken.tuxfamily.org">http://darken.tuxfamily.org</a>) à l'adresse suivante : <a href="http://darken.tuxfamily.org/pages/contact.html">http://darken.tuxfamily.org/pages/contact.html</a>.<br>
+  <P><HR><P>
+  <A NAME="LICENSE"><H2><u>Copyright & Licence</u></H2></A>
+    <B><U>Licence</U></B><br>
+    <b>Contact</b> est sous licence GPL (GNU GENERAL PUBLIC LICENSE). Pour plus d'information veuillez vous reporter au fichier COPYING fourni avec l'archive XWine-x.x.tar.gz.<br><br>
+    <center><hr width="25%"></center>
+    <B><U>Copyright</U></B><br>
+    <b>Contact</b> Copyright (c) 2002 - Philippe BOUSQUET.<br><br>
+    <center><hr width="25%"></center>
+    <B><U>Garanties</U></B><br>
+    Du fait de la gratuité du logiciel, et comme précisé dans la GPL, je ne fournit aucune garantie de quelle forme qu'elle soit quant à l'utilisation de ce logiciel ou dérivés.
+  <P><HR><P>
+  <A NAME="AUTEUR"><H2><u>Auteur</u></H2></A>
+    <b>Philippe BOUSQUET</b><br>
+    Adresse: 229 rue Sainte Catherine, 33000 BORDEAUX.<br>
+    Tel: 06.61.99.25.84<br>
+    e-mail: <a href="mailto:Darken@tuxfamily.org">Darken@tuxfamily.org</a><br>
+    site: <a href="http://darken.tuxfamily.org">http://darken.tuxfamily.org</a>
+<P><HR><P>
+  Créé le 15/01/2002 par Philippe BOUSQUET<br>
+  <ADDRESS>Copyright (c) - 2002 Philippe BOUSQUET</ADDRESS>
+</FONT></BODY>
+</HTML>

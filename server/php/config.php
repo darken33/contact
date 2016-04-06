@@ -2,5 +2,5 @@
 $Location="localhost";
 $Database="contact";
 $User="wwwcontact";
-$Passwd="wwwcontact";
+$Passwd="";
 ?>

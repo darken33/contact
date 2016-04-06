@@ -1,8 +1,9 @@
 Titre       : Contact
-Version     : 0.1
+Version     : 0.1.1
 Description : Carnet d'adresse fonctionnant en intranet
 Auteur      : Philippe BOUSQUET
 Creation    : 23/01/2002
+Modification: 09/03/2002
 Licence     : GNU GENERAL PUBLIC LICENSE
 Copyright   : (c) 2002 - Philippe BOUSQUET
 _________________________________________________________________
@@ -30,14 +31,23 @@ INSTALLATION
 	- MySQL v11.15 distrib 3.23.41
 	- Konqueror v2.2.1
 
-	Installation de Contact
-	1)Tout d'abord il vous faudra vous connecter en root
-	$ su
-	2) Lancer la configuration
-	# ./configure
-	3) Installer Contact:
-	# ./install-it
-	Pour plus d'informations veuillez vous reporter a la note INSTALL.
+        Pour installer Contact
+	  1)Tout d'abord il vous faudra vous connecter en root
+	  $ su
+	  2) Lancer la configuration
+	  # ./configure
+	  3) Installer Contact:
+	  # ./install-it
+        
+        Pour mettre à jour Contact
+	  1)Tout d'abord il vous faudra vous connecter en root
+	  $ su
+	  2) Lancer la configuration
+	  # ./configure
+	  3) Mettre à jour Contact:
+	  # ./update-it
+          
+       Pour plus d'informations veuillez vous reporter a la note INSTALL.
 
 OU TROUVER CONTACT ?
 ====================
@@ -50,13 +60,13 @@ OU TROUVER CONTACT ?
 COPYRIGHT & LICENCE
 ===================
 	Licence
-	 Contact est sous licence GPL (GNU GENERAL PUBLIC LICENSE).
-	 Pour plus d'information veuillez vous reporter au fichier
-	 LICENSE fourni avec l'archive.
+	  Contact est sous licence GPL (GNU GENERAL PUBLIC LICENSE).
+	  Pour plus d'information veuillez vous reporter au fichier
+	  LICENSE fourni avec l'archive.
 
 
 	Copyright
-	 Contact Copyright (c) 2002 - Philippe BOUSQUET.
+	  Contact Copyright (c) 2002 - Philippe BOUSQUET.
 
 
 GARANTIES

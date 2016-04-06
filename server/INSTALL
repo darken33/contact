@@ -1,8 +1,9 @@
 Titre       : Contact
-Version     : 0.1
+Version     : 0.1.1
 Description : Carnet d'adresse fonctionnant en intranet
 Auteur      : Philippe BOUSQUET
 Creation    : 23/01/2002
+Modification: 09/03/2002
 Licence     : GNU GENERAL PUBLIC LICENSE
 Copyright   : (c) 2002 - Philippe BOUSQUET
 _________________________________________________________________
@@ -52,6 +53,15 @@ INSTALLER
 	Une fois l'installation effectué il suffit de lancer le logiciel:
 	http://localhost/Contact
 
+METTRE A JOUR
+=============
+        Si une version anterieure de Contact est installée, pour mettre à jour Contact,
+        il suffit de tapper './update-it'.
+	
+	Le script va copier les fichiers necessaires a l'emplacement choisi.
+
+	Une fois l'installation effectué il suffit de lancer le logiciel:
+	http://localhost/Contact
 _________________________________________________________________
 
 Philippe BOUSQUET

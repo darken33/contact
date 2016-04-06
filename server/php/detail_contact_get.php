@@ -31,6 +31,19 @@
 <?
   require("config.php");
   $dbh=mysql_connect($Location, $User, $Passwd);
+  $fax=htmlspecialchars($fax);
+  $nom=htmlspecialchars($nom);
+  $prenom=htmlspecialchars($prenom);
+  $nature=htmlspecialchars($nature);
+  $type=htmlspecialchars($type);
+  $adresse1=htmlspecialchars($adresse1);
+  $adresse2=htmlspecialchars($adresse2);
+  $cdpost=htmlspecialchars($cdpost);
+  $teldom=htmlspecialchars($teldom);
+  $telbur=htmlspecialchars($telbur);
+  $telpor=htmlspecialchars($telpor);
+  $emprof=htmlspecialchars($emprof);
+  $empers=htmlspecialchars($empers);
   if ($action == "Creation")
   {
     mysql_query("INSERT INTO contact.contacts VALUES ('$ident','$cuser','$nom','$prenom','$dnaiss','$pseudo','$nature','$type','$adresse1','$adresse2','$cdpost','$ville','$teldom','$empers','$telbur','$emprof','$telpor','$fax');",$dbh);

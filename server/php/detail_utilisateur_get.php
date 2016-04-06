@@ -26,6 +26,8 @@
 <?
   require("config.php");
   $dbh=mysql_connect($Location, $User, $Passwd);
+  $cuser=htmlspecialchars($cuser);
+  $cpasswd=htmlspecialchars($cpasswd);
   if ($action == "Modifier")
   {
     mysql_query("UPDATE contact.users SET passwd='$cpasswd' WHERE cuser='$cuser';",$dbh);
