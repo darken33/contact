@@ -17,7 +17,7 @@ if [ ! -d $location/Contact/help/imgs ]; then
 fi
 cp php/* $location/Contact -f
 cp imgs/* $location/Contact/imgs -f
-cp help/*.html $location/Contact/help
+cp help/*.html $location/Contact/help -f
 cp help/imgs/* $location/Contact/help/imgs -f
 echo ""
 

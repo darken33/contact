@@ -49,7 +49,7 @@
       <td align="center" valign="center">
         <table width="60%" align="center" bgcolor="darkCyan">
           <tr>
-            <td><font color="red" size=+2><div align="left"><i><b>CONTACT v0.1</b></i></div></font></td>
+            <td><font color="red" size=+2><div align="left"><i><b>CONTACT v0.1.2</b></i></div></font></td>
           </tr>
           <tr>
             <td><hr></td>

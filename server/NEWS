@@ -1,13 +1,19 @@
 Titre       : Contact
-Version     : 0.1.1
+Version     : 0.1.2
 Description : Carnet d'adresse fonctionnant en intranet
 Auteur      : Philippe BOUSQUET
 Creation    : 23/01/2002
-Modification: 09/03/2002
+Modification: 24/03/2002
 Licence     : GNU GENERAL PUBLIC LICENSE
 Copyright   : (c) 2002 - Philippe BOUSQUET
 _________________________________________________________________
 
+Version 0.1.2
+=============
+        - Premettre l'utilisation du caractères générique '*'
+          pour les recherches à la place de '%'
+        - Corrections de la documentation.
+        
 Version 0.1.1
 =============
 	Securisation de Contac.

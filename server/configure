@@ -66,3 +66,4 @@ chmod 755 update-it
 # fin
 echo ""
 echo "Veuillez taper ./install-it pour installer..."
+echo "Ou tapez ./update-it pour mettre a jour..."

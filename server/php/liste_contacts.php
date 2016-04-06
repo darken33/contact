@@ -90,6 +90,10 @@
    if ($_nature=="") $_nature="%";
    if ($_type=="") $_type="%";
    if ($_ville=="") $_ville="%";
+   $_nom = str_replace("*","%",$_nom);
+   $_prenom = str_replace("*","%",$_prenom);
+   $_pseudo = str_replace("*","%",$_pseudo);
+   $_ville = str_replace("*","%",$_ville);
    $result=mysql_query("SELECT * FROM contact.contacts WHERE cuser='$login' AND nom LIKE '$_nom' AND prenom LIKE '$_prenom' AND pseudo LIKE '$_pseudo' AND nature LIKE '$_nature' AND type LIKE '$_type' AND ville LIKE '$_ville';",$dbh);
    while ($row = mysql_fetch_assoc($result))
    {
